@@ -39,30 +39,31 @@ void display(double temperature, double changeinlength)
 int main()
 {
 	int choice;
-	double iL, L, Tf, To, x;
+	double iL, L=0, Tf=0, To, x=0;
 	cout << "This program will compute for the increase in length of a steel bridge. " << endl << endl;
 
 	do
 	{
 		cout << "Input initial length of bridge: "; cin >> L;
 
-		while (L <= 0)
+		if (L <= 0)
 		{
-			cout << "Invalid initial length of bridge! Please try again." << endl << endl;
+			cout << "Initial length must be greater than 0! Please try again." << endl << endl;
 			cout << "Input initial length of bridge: "; cin >> L;
 		}
 
 		cout << "Input final temperature: "; cin >> Tf;
 
-		while (Tf <= 0)
+		if (Tf <= 0)
 		{
-			cout << "Invalid final temperature! Please try again. " << endl << endl;
+			cout << "Final temperature must greater than 0! Please try again. " << endl << endl;
 			cout << "Input final temperature: "; cin >> Tf;
 		}
 
+
 		cout << "Input increment of temperature increase: "; cin >> x;
 
-		while (x < 1 || x > 5)
+		if (x < 1 || x > 5)
 		{
 			cout << "Increment must be between 1 to 5! Please try again." << endl << endl;
 			cout << "Input increment of temperature increase: "; cin >> x;
