@@ -33,24 +33,52 @@ void compute(double &iL, double L, double To)
 
 void display(double temperature, double changeinlength)
 {
-	cout << setw(15) << left << fixed << setprecision(3) << temperature << scientific << changeinlength << endl;
+	cout << setw(15) << left << fixed << setprecision(2) << temperature << scientific << changeinlength << endl;
 }
 
 int main()
 {
+	int choice;
 	double iL, L, Tf, To, x;
 	cout << "This program will compute for the increase in length of a steel bridge. " << endl << endl;
 
-	cout << "Input initial length of bridge: "; cin >> L;
-	cout << "Input final temperature: "; cin >> Tf;
-	cout << "Input increment of temperature increase: "; cin >> x;
-
-	cout << setw(15) << left << "Temperature" << "Length increase" << endl;
-	for (To = 0; To <= Tf; To += x)
+	do
 	{
-		compute(iL, L, To);
-		display(To, iL);
-	}
+		cout << "Input initial length of bridge: "; cin >> L;
+
+		while (L <= 0)
+		{
+			cout << "Invalid initial length of bridge! Please try again." << endl << endl;
+			cout << "Input initial length of bridge: "; cin >> L;
+		}
+
+		cout << "Input final temperature: "; cin >> Tf;
+
+		while (Tf <= 0)
+		{
+			cout << "Invalid final temperature! Please try again. " << endl << endl;
+			cout << "Input final temperature: "; cin >> Tf;
+		}
+
+		cout << "Input increment of temperature increase: "; cin >> x;
+
+		while (x < 1 || x > 5)
+		{
+			cout << "Increment must be between 1 to 5! Please try again." << endl << endl;
+			cout << "Input increment of temperature increase: "; cin >> x;
+		}
+
+		cout << endl;
+		cout << setw(15) << left << "Temperature" << "Length increase" << endl;
+		for (To = 0; To <= Tf; To += x)
+		{
+			compute(iL, L, To);
+			display(To, iL);
+		}
+		cout << endl;
+		cout << "Press 1 to repeat the program, else other number: "; cin >> choice;
+		cout << endl;
+	} while (choice == 1);
 
 	_getch();
 	return 0;
