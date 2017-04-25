@@ -56,23 +56,29 @@ void display(double ft, double m, int ctr)
 
 int main()
 {
-	int t, ctr;
+	int t, ctr, choice;
 	double ft, m;
 	cout << "This program will compute for distance travelled of free falling body." << endl << endl;
 
-	input(t);
-
-	cout << endl;
-
-	cout << setw(15) << left << "Time(t)" << setw(20) << "Distance (ft)" << "Distance (m)" << endl;
-
-	for (ctr = 0; ctr <= t; ctr++)
+	do
 	{
-		compute(ft,m,ctr);
-		display(ft, m, ctr);
-	}
+		input(t);
 
-	cout << endl;
+		cout << endl;
+
+		cout << setw(15) << left << "Time(t)" << setw(20) << "Distance (ft)" << "Distance (m)" << endl;
+
+		for (ctr = 0; ctr <= t; ctr++)
+		{
+			compute(ft, m, ctr);
+			display(ft, m, ctr);
+		}
+
+		cout << endl;
+		cout << "Press 1 to repeat the program else other number: "; cin >> choice;
+		cout << endl;
+	} while (choice == 1);
+
 	_getch();
 	return 0;
 }
