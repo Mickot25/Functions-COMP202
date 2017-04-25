@@ -31,9 +31,9 @@ void compute(double &iL, double L, double To)
 	iL = (11.7 * pow(10, -6.0)) * L * (To);
 }
 
-void display(double Tf, double iL)
+void display(double temperature, double changeinlength)
 {
-	cout << setw(15) << left << fixed << setprecision(3) << Tf << scientific << iL << endl;
+	cout << setw(15) << left << fixed << setprecision(3) << temperature << scientific << changeinlength << endl;
 }
 
 int main()
