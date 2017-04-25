@@ -15,18 +15,14 @@ filename: rtriangle
 #include <math.h>
 using namespace std;
 
-double hyp(double side1, double side2)
+void hyp(double side1, double side2, double &hypotenuse)
 {
-	double hyp;
-	hyp = sqrt(pow(side1, 2) + pow(side2, 2));
-	return hyp;
+	hypotenuse = sqrt(pow(side1, 2) + pow(side2, 2));
 }
 
-double area(double side1, double side2)
+void area(double side1, double side2, double &thearea)
 {
-	double area;
-	area = 0.5 * side1 * side2;
-	return area;
+	thearea = 0.5 * side1 * side2;
 }
 
 void display(double hyp, double area)
@@ -37,16 +33,16 @@ void display(double hyp, double area)
 
 int main()
 {
-	double x, y, a, h;
+	double x, y, hypotenuse, thearea;
 	cout << "This program will compute for the length of hypotenuse"<<endl<<"and area of a right triangle." << endl << endl;
 
 	cout << "Input first side of the right triangle: "; cin >> x;
 	cout << "Input second side of the right triangle: "; cin >> y;
 	cout << endl;
 
-	h = hyp(x, y);
-	a = area(x, y);
-	display(h, a);
+	hyp(x, y, hypotenuse);
+	area(x, y, thearea);
+	display(hypotenuse, thearea);
 
 	_getch();
 	return 0;
