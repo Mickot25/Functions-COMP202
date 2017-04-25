@@ -19,3 +19,39 @@ Display() - display results
 
 filename: funcexpansion
 */
+
+#include <iostream>
+#include <conio.h>
+#include <math.h>
+#include <iomanip>
+using namespace std;
+
+void compute(double &iL, double L, double To)
+{
+	iL = (11.7 * pow(10, -6.0)) * L * (To);
+}
+
+void display(double Tf, double iL)
+{
+	cout << setw(15) << left << fixed << setprecision(3) << Tf << scientific << iL << endl;
+}
+
+int main()
+{
+	double iL, L, Tf, To, x;
+	cout << "This program will compute for the increase in length of a steel bridge. " << endl << endl;
+
+	cout << "Input initial length of bridge: "; cin >> L;
+	cout << "Input final temperature: "; cin >> Tf;
+	cout << "Input increment of temperature increase: "; cin >> x;
+
+	cout << setw(15) << left << "Temperature" << "Length increase" << endl;
+	for (To = 0; To <= Tf; To += x)
+	{
+		compute(iL, L, To);
+		display(To, iL);
+	}
+
+	_getch();
+	return 0;
+}
