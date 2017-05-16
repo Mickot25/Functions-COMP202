@@ -17,7 +17,7 @@ void swap(int&array1, int&array2)
 int main()
 {
 	int arr[20], sortarr[20];
-	int lowest = 0; //in progress
+	int lowest = 0;
 
 	srand(time(NULL));
 
@@ -54,7 +54,7 @@ int main()
 			lowest = sortarr[r-1];
 	}
 
-	cout << "Lowest nonrepeating number: " << lowest << endl; //still in progress at this stage
+	cout << "Lowest nonrepeating number: " << lowest << endl;
 
 	_getch();
 	return 0;
